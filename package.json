@@ -1,0 +1,25 @@
+
+---
+
+### **9. `package.json`**
+Package configuration with necessary dependencies and scripts.
+
+```json
+{
+  "name": "task1-lambda-s3-api",
+  "version": "1.0.0",
+  "description": "AWS Lambda and S3 API for storing and retrieving JSON data",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "deploy": "serverless deploy",
+    "remove": "serverless remove"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1027.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "serverless": "^2.0.0"
+  }
+}

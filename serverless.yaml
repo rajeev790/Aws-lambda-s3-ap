@@ -1,0 +1,30 @@
+service: task1-lambda-s3-api
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  environment:
+    BUCKET_NAME: ${env:BUCKET_NAME}
+
+functions:
+  postData:
+    handler: src/functions/postData.handler
+    events:
+      - http:
+          path: post
+          method: post
+
+  getData:
+    handler: src/functions/getData.handler
+    events:
+      - http:
+          path: get
+          method: get
+
+resources:
+  Resources:
+    JsonS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${env:BUCKET_NAME}
